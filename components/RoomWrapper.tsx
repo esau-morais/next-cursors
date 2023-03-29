@@ -9,16 +9,16 @@ import { ReactNode, useMemo } from 'react'
  * You can ignore it completely if you run the example locally.
  */
 function useOverrideRoomId(roomId: string) {
-  const { get } = useSearchParams()
+  const query = useSearchParams()
   const overrideRoomId = useMemo(() => {
-    const roomIdQuery = get(roomId)
+    const roomIdQuery = query?.get(roomId)
     return roomIdQuery ? `${roomId}-${roomIdQuery}` : roomId
-  }, [get, roomId])
+  }, [query, roomId])
 
   return overrideRoomId
 }
 export function RoomWrapper({ children }: { children: ReactNode }) {
-  const roomId = useOverrideRoomId('nextjs-live-cursors')
+  const roomId = useOverrideRoomId('next-cursors')
 
   return (
     <RoomProvider
