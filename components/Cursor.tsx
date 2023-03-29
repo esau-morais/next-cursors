@@ -1,18 +1,14 @@
-import React from "react";
-
 type Props = {
-  color: string;
-  x: number;
-  y: number;
-};
+  color: string
+  x: number
+  y: number
+}
 
 export default function Cursor({ color, x, y }: Props) {
   return (
     <svg
+      className="absolute left-0 top-0"
       style={{
-        position: "absolute",
-        left: 0,
-        top: 0,
         transform: `translateX(${x}px) translateY(${y}px)`,
       }}
       width="24"
@@ -26,5 +22,5 @@ export default function Cursor({ color, x, y }: Props) {
         fill={color}
       />
     </svg>
-  );
+  )
 }
